@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 entity axis_to_parallel is
     port (
         clk         : in  std_logic;
-        rst         : in  std_logic;
+        rst_bar     : in  std_logic;  -- active-low reset
         rx_tvalid   : in  std_logic;
         rx_tdata    : in  std_logic_vector(31 downto 0);
         sample_out  : out std_logic_vector(11 downto 0)
@@ -19,7 +19,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if rst = '1' then
+            if rst_bar = '0' then
                 sample_reg <= (others => '0');
             elsif rx_tvalid = '1' then
                 sample_reg <= rx_tdata(11 downto 0);
