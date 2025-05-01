@@ -60,7 +60,7 @@ begin
         variable expected_led : std_logic_vector(9 downto 0);
         variable expected_buz : std_logic;
     begin
-        for i in 0 to 4100 loop
+        for i in 0 to 4095 loop
             peak_pow_int := i;
             peak_pow <= std_logic_vector(to_unsigned(peak_pow_int, 12));
             wait for period;
