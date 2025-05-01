@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity axis_to_parallel is
+entity rx_lane_interface is
     port (
         clk         : in  std_logic;
         rst_bar     : in  std_logic;  -- active-low reset
@@ -12,7 +12,7 @@ entity axis_to_parallel is
     );
 end entity;
 
-architecture rtl of axis_to_parallel is
+architecture rtl of rx_lane_interface is
     signal sample_reg : std_logic_vector(11 downto 0) := (others => '0');
 begin
 
